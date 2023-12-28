@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'driver' => 'bcrypt',
+    'driver' => env('HASH_DRIVER', 'bcrypt'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ return [
     */
 
     'bcrypt' => [
-        'rounds' => env('BCRYPT_ROUNDS', 10),
+        'rounds' => env('BCRYPT_ROUNDS', 12),
     ],
 
     /*

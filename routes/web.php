@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AchievementsController;
+use App\Http\Controllers\LessonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/lessons/{lesson}/watch', [LessonController::class, 'watch'])->name('lessons.watch');
+Route::post('/lessons/{lesson}/watch', [LessonController::class, 'watch'])->name('lessons.watch');
 
 Route::get('/users/{user}/achievements', [AchievementsController::class, 'index']);

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'comments_written'
     ];
 
     /**
@@ -41,6 +42,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'comments_written' => 'integer',
+
     ];
 
     /**
@@ -66,5 +69,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Lesson::class)->wherePivot('watched', true);
     }
-}
 
+    public function achievements()
+    {
+         return $this->belongsToMany(Achievement::class, 'user_achievements');;//->withTimestamps();
+    }
+
+
+}
